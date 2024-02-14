@@ -11,7 +11,7 @@ export default function Home() {
   <h1>Analytics</h1>
   <h1>Templates</h1>
   <h1>Automation</h1>
-
+<h1>philip is a fool</h1>
  </div>
    </div>
   );
