@@ -54,7 +54,7 @@ const layout = ({children} : {children : React.ReactNode}) => {
       </div>
         {/* navbar ends */}
 
-      <div className='pl-[20%] lg:pl-0'>
+      <div className='pl-[19%] lg:pl-0'>
       {children}
       </div>
     </div>
