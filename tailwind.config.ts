@@ -91,7 +91,9 @@ const config = {
       'ss': {'max': '300px'},
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("daisyui")],
+  
+  
 } satisfies Config
 
 export default config
