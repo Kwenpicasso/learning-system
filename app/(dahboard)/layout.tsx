@@ -49,7 +49,7 @@ const layout = ({children} : {children : React.ReactNode}) => {
       </div>
       {/* sidebar end*/}
       {/* navbar begin */}
-      <div className='w-full max h-[70px] bg-white  shadow-md'>
+      <div className='w-full max h-[60px] bg-white  shadow-md'>
       <Navbar/>
       </div>
         {/* navbar ends */}
