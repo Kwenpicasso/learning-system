@@ -99,5 +99,9 @@ body {
   .max {
     @apply mx-auto max-w-[1550px];
   }
+ 
+  .name {
+    @apply  w-[100px] h-[40px] flex justify-center items-center  border-green-900 border-[2px]  text-orange-500 cursor-pointer rounded-sm text-sm text-center ;
+  }
 
 }
