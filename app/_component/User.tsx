@@ -11,7 +11,7 @@ const User = () => {
   return (
   <>
    {!user ? (
-    <h1 className=" w-[100px] h-[40px] flex justify-center items-center  border-green-900 border-[2px] bg-green-900 text-orange-300   cursor-pointer rounded-sm text-sm text-center"><Link href='/sign-in'>Login</Link></h1>
+    <h1 className=" w-[100px] h-[40px] flex justify-center items-center  border-green-900 border-[2px] bg-green-900 text-orange-300   cursor-pointer rounded-sm text-sm text-center"><Link href='/sign-in'>Get Started</Link></h1>
    ) : (
       <div className="flex gap-3 justify-end w-[200px] h-[40px]  items-center capitalize">
     
