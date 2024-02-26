@@ -9,7 +9,7 @@ const EnrollSection = () => {
   <div className='flex flex-col items-center text-center justify-center gap-2'>
   <h1 className='capitalize font-semibold text-lg text-black'>enroll to this course</h1>
     <p className='text-xs'>Choose from over 210,000 online video courses with new additions published every month</p>
-    <Button className='bg-green-900 text-orange-500 hover:opacity-75'>Enroll Now</Button>
+    <Button className='bg-green-900 text-orange-500 hover:opacity-75 w-full'>Enroll Now</Button>
 
   </div>
    </div>
