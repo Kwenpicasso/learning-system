@@ -15,6 +15,7 @@ const VideoDescription = () => {
     <h1 className='flex items-center gap-1 '>3 Chapters<BadgeCheck size={15} className='text-green-900' /> </h1>
   </div>
    </div>
+   <p className='text-black text-sm mt-1'>Next.js is an open-source web development framework created by the private company Vercel providing React-based web applications with server-side rendering and static website generation.</p>
     </>
   )
 }
