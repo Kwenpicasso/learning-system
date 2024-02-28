@@ -8,6 +8,7 @@ interface AllCourseProp{
     id: string;
     name: string;
     author: string;
+    free: boolean;
     banner: {
      url: string;
     };
@@ -16,4 +17,32 @@ interface AllCourseProp{
     }
     totalChapters: number;
 
+}
+
+interface SingleCourseProp {
+    author:string;
+    authorimage: {
+        url: string;
+    }
+  
+    chapters: [
+       {
+         video:{
+            url: string;
+        }
+       },
+       {
+         video:{
+            url: string;
+        }
+       },
+       {
+         video:{
+            url: string;
+        }
+       }
+    ];
+    description:string;
+    name:string;
+    totalChapters: number;
 }

@@ -1,7 +1,7 @@
 'use client'
 import AllCourses from "@/app/_component/AllCourses";
 import FilterCat from "@/app/_component/FilterCat";
-import Globalapi from "@/app/hygraphapi/Globalapi";
+import  { getAllCourses } from "@/app/hygraphapi/Globalapi";
 import { useEffect, useState } from "react";
 
 
@@ -16,7 +16,7 @@ export default function Home() {
 
   // to fetch all courses from the hygraphapi
   const getCourses = () => {
-   Globalapi.getAllCourses().then(resp=>{
+   getAllCourses().then(resp=>{
     const data:any = resp;
     const data1:AllCourseProp[]= data?.course
     setCourselists(data1)
