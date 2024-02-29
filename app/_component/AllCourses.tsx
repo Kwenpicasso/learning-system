@@ -10,14 +10,18 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const AllCourses = ({courselists}:{courselists: AllCourseProp[]}) => {
+    // i am accepting the courselists as a props from the courselists state passed from the parent component
+    // courselists is an array
  
   
   return (
-    <div className='w-full mt-3 grid grid-cols-3 gap-6 '>
+    <div className='w-full mt-3 grid grid-cols-3 gap-4 '>
+      {/* i am mapping through the courselists data */}
    {courselists?.map((item) => (
-       <Link href={`/singlecourse/${item.id}`}>
+       
         <div className='w-[368px] h-[250px] lg:mt-3 lg:col-span-3 lg:w-full flex flex-col justify-center items-center  ' key={item.id}>
-       <Image loading='lazy' src={item.banner.url} width={360} height={360} alt='courses' className='rounded-lg object-cover'/>
+      <Link href={`/singlecourse/${item.id}`}>
+      <Image loading='lazy' src={item.banner.url} width={360} height={360} alt='courses' className='rounded-lg object-cover'/>
        <div className='w-full flex gap-2 justify-start lg:justify-center mt-2 items-center'>
        <Avatar>
        <AvatarImage src={item.authorimage.url} alt="@shadcn"  className='object-cover'/>
@@ -37,8 +41,9 @@ const AllCourses = ({courselists}:{courselists: AllCourseProp[]}) => {
  </div>
     </div>
        </div>
+      </Link>
        </div>
-       </Link>
+       
       
    ))}
    
