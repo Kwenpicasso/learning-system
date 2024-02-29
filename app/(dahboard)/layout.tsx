@@ -29,7 +29,7 @@ const layout = ({children} : {children : React.ReactNode}) => {
 ]
   return (
     <div className='h-full w-full max'>
-      {/* sidebar begin*/}
+      {/* sidebar container begin*/}
       <div className='w-[18%] lg:hidden fixed bg-green-900 flex flex-col justify-between items-start h-screen p-[2%] '>
      <div className='w-full flex flex-col justify-center items-center'>
      <div className='flex gap-1 w-full items-center text-white  text-lg'><Logo/><h1>LearningNinja</h1></div>
@@ -47,12 +47,12 @@ const layout = ({children} : {children : React.ReactNode}) => {
      </div>
      <Logout/>
       </div>
-      {/* sidebar end*/}
-      {/* navbar begin */}
+      {/* sidebar container end*/}
+      {/* navbar container begin */}
       <div className='w-full max h-[60px] bg-white  shadow-md'>
       <Navbar/>
       </div>
-        {/* navbar ends */}
+        {/* navbar container ends */}
 
       <div className='pl-[19%] lg:pl-0'>
       {children}
