@@ -14,8 +14,9 @@ export default function Home() {
    getCourses();
   },[]);
 
-  // to fetch all courses from the hygraphapi
+  // to fetch all courses from the hygraphapi 
   const getCourses = () => {
+    // getallcourses is imported from the globalapi
    getAllCourses().then(resp=>{
     const data:any = resp;
     const data1:AllCourseProp[]= data?.course
