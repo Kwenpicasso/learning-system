@@ -48,7 +48,11 @@ interface SingleCourseProp {
     name:string;
     totalChapters: number;
 }
-
+interface enrollUserId {
+    courseId:string;
+    userEmail:string;
+    completeChapter:string;
+}
 
 interface YourResponseType {
     createUserEnrollCourse?: {
