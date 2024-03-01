@@ -53,6 +53,8 @@ return result;
       userEnrollCourses(where: {courseId: "${id}", userEmail: "${userEmail}"}) {
         courseId
         userEmail
+        completeChapter
+        
       }
     }
     
