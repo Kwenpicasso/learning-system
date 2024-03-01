@@ -6,7 +6,7 @@ import { useUser } from "@clerk/nextjs";
 import { useRouter } from 'next/navigation';
 import { EnrollUser, PubishEnrollUser } from '../hygraphapi/Globalapi';
 
-const EnrollSection = ({singlelist}:{singlelist: SingleCourseProp}) => {
+const EnrollSection = ({singlelist, publish}:{singlelist: SingleCourseProp,publish: enrollUserId}) => {
   const { user } = useUser();
   const router = useRouter();
   const mail = user?.primaryEmailAddress?.emailAddress;
@@ -17,12 +17,15 @@ const EnrollSection = ({singlelist}:{singlelist: SingleCourseProp}) => {
     // if there is a user it runs this
     if(user){
     await EnrollUser(singlelist.id,mail).then(async resp =>{
-      console.log('enroll',resp);
       if(resp){
-    
+        
         const data:any = resp;
+        
         const data1:YourResponseType= data?.createUserEnrollCourse?.id
-        await PubishEnrollUser(data1)
+        await PubishEnrollUser(data1).then(result=> {
+          
+          console.log('result',result);
+        })
       }
     })
     } 
@@ -35,7 +38,8 @@ const EnrollSection = ({singlelist}:{singlelist: SingleCourseProp}) => {
   return (
     // a boolean that checks if a course is free or not
    <>
-  {singlelist.free ? (
+
+  {singlelist.free && publish.courseId  ? (
      <div className='w-full h-[200px] rounded-lg shadow-lg flex items-center p-5 bg-white'>
      <Image src='/hand.png' width={100} height={200} alt='hand'/>
    <div className='flex flex-col items-center text-center justify-center gap-2'>
