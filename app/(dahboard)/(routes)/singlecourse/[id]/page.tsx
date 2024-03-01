@@ -9,6 +9,7 @@ import { useUser } from "@clerk/nextjs";
 
 const page = ({params}:{params:any}) => {
   const [singlelist, setSinglelist] = useState<SingleCourseProp>();
+  const [publish, setPublish] = useState<enrollUserId>();
   const { user } = useUser();
   const mail = user?.primaryEmailAddress?.emailAddress;
 
@@ -20,9 +21,15 @@ const page = ({params}:{params:any}) => {
   // to fetch all courses from the hygraphapi
   const oneCourse = (id: any) => {
    getSingleCourse(params.id, mail).then(resp=>{
+    
     const data:any = resp;
+    console.log('first',data)
     const data1:SingleCourseProp= data?.courses
+    const data2:enrollUserId= data?.userEnrollCourses[0]
+
     setSinglelist(data1)
+    setPublish(data2)
+    console.log('second',data1)
    })
   }
   return (
@@ -41,7 +48,7 @@ const page = ({params}:{params:any}) => {
      {/* right section */}
       <div className='col-span-2 h-[400px] lg:col-span-6'>
         {/*this is the enroll section component */}
-    {singlelist &&   <EnrollSection singlelist={singlelist}/>}
+    {singlelist && publish && <EnrollSection singlelist={singlelist} publish={publish}/>}
        {/*this is the membership section component */}
      <MembershipSection/>
       </div>
