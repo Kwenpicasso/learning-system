@@ -59,5 +59,7 @@ interface YourResponseType {
       id: string;
       // other properties if any
     };
-    // other properties if any
+    
   }
+
+ 
