@@ -4,12 +4,14 @@ import Image from 'next/image'
 import React from 'react'
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from 'next/navigation';
-import { EnrollUser, PubishEnrollUser } from '../hygraphapi/Globalapi';
+import { EnrollUser, PubishEnrollUser} from '../hygraphapi/Globalapi';
+import { Heading1 } from 'lucide-react';
 
-const EnrollSection = ({singlelist, publish}:{singlelist: SingleCourseProp,publish: enrollUserId}) => {
+const EnrollSection = ({singlelist, publish}:{singlelist: SingleCourseProp, publish: enrollUserId}) => {
   const { user } = useUser();
   const router = useRouter();
   const mail = user?.primaryEmailAddress?.emailAddress;
+ 
   
 
   //this is the function to enroll users to a course
@@ -25,6 +27,9 @@ const EnrollSection = ({singlelist, publish}:{singlelist: SingleCourseProp,publi
         await PubishEnrollUser(data1).then(result=> {
           
           console.log('result',result);
+          if(result){
+            router.push(`/coursevideo/${singlelist.id}`)
+          }
         })
       }
     })
@@ -35,11 +40,24 @@ const EnrollSection = ({singlelist, publish}:{singlelist: SingleCourseProp,publi
     }
      
   }
+  
   return (
     // a boolean that checks if a course is free or not
    <>
+{
+  publish?.courseId && (   <div className='w-full h-[200px] rounded-lg shadow-lg flex items-center p-5 bg-white'>
+  <Image src='/hand.png' width={100} height={200} alt='hand'/>
+<div className='flex flex-col items-center text-center justify-center gap-2'>
+<h1 className='capitalize font-semibold text-lg text-black'>enroll to this course</h1>
+  <p className='text-xs'>Choose from over 210,000 online video courses with new additions published every month</p>
+  <Button className='bg-green-900 text-orange-500 hover:opacity-75 w-full' >cont</Button>
 
-  {singlelist.free && publish.courseId  ? (
+</div>
+ </div> )
+}
+ 
+ 
+  {singlelist.free ? (
      <div className='w-full h-[200px] rounded-lg shadow-lg flex items-center p-5 bg-white'>
      <Image src='/hand.png' width={100} height={200} alt='hand'/>
    <div className='flex flex-col items-center text-center justify-center gap-2'>
@@ -48,9 +66,9 @@ const EnrollSection = ({singlelist, publish}:{singlelist: SingleCourseProp,publi
      <Button className='bg-green-900 text-orange-500 hover:opacity-75 w-full' onClick={() => Enroll()}>Enroll Now</Button>
  
    </div>
-    </div>
-  ): (
-    <div className='w-full h-[200px] rounded-lg shadow-lg flex items-center p-5 bg-white mt-2'>
+    </div>)
+  : 
+    (<div className='w-full h-[200px] rounded-lg shadow-lg flex items-center p-5 bg-white mt-2'>
     <Image src='/hand.png' width={100} height={200} alt='hand'/>
   <div className='flex flex-col items-center text-center justify-center gap-2'>
   <h1 className='capitalize font-semibold text-lg text-black'>become a member!</h1>
@@ -58,8 +76,9 @@ const EnrollSection = ({singlelist, publish}:{singlelist: SingleCourseProp,publi
     <Button className='bg-green-900 text-orange-500 hover:opacity-75 w-full'>Buy Memebership at $30.99</Button>
 
   </div>
-   </div>
-  )}
+   </div>)
+   
+}
    </>
   )
 }
