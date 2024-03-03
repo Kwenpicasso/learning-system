@@ -39,6 +39,9 @@ return result;
         name
         chapters {
           ... on Chapter {
+            id
+            name
+            chapterNumber
             video {
               url
             }
