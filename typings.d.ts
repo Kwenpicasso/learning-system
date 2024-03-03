@@ -28,17 +28,27 @@ interface SingleCourseProp {
     }
   
     chapters: [
+       
        {
+        id:string;
+        name:string;
+        chapterNumber:number;
          video:{
             url: string;
         }
        },
        {
+        id:string;
+        name:string;
+        chapterNumber:number;
          video:{
             url: string;
         }
        },
        {
+        id:string;
+        name:string;
+        chapterNumber:number;
          video:{
             url: string;
         }
