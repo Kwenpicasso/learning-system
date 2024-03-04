@@ -72,4 +72,11 @@ interface YourResponseType {
     
   }
 
- 
+ interface chapter  {
+    id:string;
+    name:string;
+    chapterNumber:number;
+     video:{
+        url: string;
+    }
+   }
