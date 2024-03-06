@@ -44,7 +44,7 @@ const page = ({params}:{params:any}) => {
       <div className=' col-span-4 lg:col-span-6 p-3'>
        {/* video */}
        
-       <video width='1000' height='550' src={activeChapter?.video?.url} controls autoPlay controlsList='nodownload' typeof='video/mp4'></video>
+       <video width='1000' height='550' key={activeChapter?.video?.url} src={activeChapter?.video?.url} controls autoPlay controlsList='nodownload' typeof='video/mp4'></video>
        
       </div>
       {/* videoplay buttons section */}
