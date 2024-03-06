@@ -39,9 +39,9 @@ const page = ({params}:{params:any}) => {
       })
      }
   return (
-    <div className='max w-full h-full  grid grid-cols-6'>
+    <div className='max w-full h-screen grid grid-cols-6'>
           {/* video section */}
-      <div className=' col-span-4 lg:col-span-6 p-3'>
+      <div className=' col-span-4 lg:col-span-6 p-3 '>
        {/* video */}
        
        <video width='1000' height='550' key={activeChapter?.video?.url} src={activeChapter?.video?.url} controls autoPlay controlsList='nodownload' typeof='video/mp4'></video>
