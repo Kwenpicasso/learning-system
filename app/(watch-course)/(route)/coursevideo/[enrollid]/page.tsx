@@ -2,7 +2,8 @@
 import { getSingleCourse } from '@/app/hygraphapi/Globalapi';
 import React, { useEffect, useState } from 'react'
 import { useUser } from "@clerk/nextjs";
-import {  PauseCircleIcon, PlayCircle } from 'lucide-react';
+import {   ArrowLeft, PauseCircleIcon, PlayCircle } from 'lucide-react';
+import Link from 'next/link';
 
 const page = ({params}:{params:any}) => {
   const [singlelist, setSinglelist] = useState<SingleCourseProp>();
@@ -39,32 +40,46 @@ const page = ({params}:{params:any}) => {
       })
      }
   return (
-    <div className='max w-full h-screen grid grid-cols-6'>
-          {/* video section */}
-      <div className=' col-span-4 lg:col-span-6 p-3 '>
-       {/* video */}
-       
-       <video width='1000' height='550' key={activeChapter?.video?.url} src={activeChapter?.video?.url} controls autoPlay controlsList='nodownload' typeof='video/mp4'></video>
-       
-      </div>
-      {/* videoplay buttons section */}
-      <div className=' bg-red-400 col-span-2 lg:col-span-6'>
-      <div className='w-full h-full bg-white flex gap-1 flex-col p-3'>
-        <h1 className='capitalize font-semibold text-base text-black'>{singlelist?.name}</h1>
-      {singlelist?.chapters.map((item,index) => (
-          <div className={`w-full h-[50px] font-semibold text-sm cursor-pointer px-3 ${activeindex==index?'bg-green-200 text-green-900': null} border-1px border-gray-200 text-black rounded-md border flex justify-between items-center`} key={index} onClick={()=> {setActiveIndex(index); setActiveChapter(item)}}>
-          <div className='flex gap-5 items-center justify-around'>
-            <h1>{index}</h1>
-          <h1 className='space-x-2'>{item.name}</h1>
-          </div>
-          {activeindex==index? <PauseCircleIcon size={20}/> : <PlayCircle size={20}/>}
-          </div>
-      ))}
-       
-       </div>
-      </div>
-    
+   <div className='max w-full h-screen '>
+    <div className='w-full h-[60px] flex justify-start items-center text-center text-sm pl-4 '>
+     <Link href={`/singlecourse/${singlelist?.id}`}>
+     <h1 className='flex gap-1 items-center capitalize font-semibold'><ArrowLeft  size={15}/>back to course</h1>
+     </Link>
     </div>
+     {/* line */}
+    <div className='w-[98%] mx-auto border-gray-200 border-[1px]'></div>
+     <div className='w-full  grid grid-cols-6 pt-4'>
+     
+      
+    
+    {/* video section */}
+<div className=' col-span-4 lg:col-span-6 px-3 '>
+ {/* video */}
+ <div className='w-full h-[420px] sm:h-[300px] '>
+ <video width='1000' height='550' key={activeChapter?.video?.url} src={activeChapter?.video?.url} controls autoPlay controlsList='nodownload' typeof='video/mp4'></video>
+ </div>
+
+ 
+</div>
+{/* videoplay buttons section */}
+<div className=' col-span-2 lg:col-span-6'>
+<div className='w-full h-full bg-white flex gap-1 flex-col p-3'>
+  <h1 className='capitalize font-semibold text-base text-black'>{singlelist?.name}</h1>
+{singlelist?.chapters.map((item,index) => (
+    <div className={`w-full h-[50px] font-semibold text-sm cursor-pointer px-3 ${activeindex==index?'bg-green-200 text-green-900': null} border-1px border-gray-200 text-black rounded-md border flex justify-between items-center`} key={index} onClick={()=> {setActiveIndex(index); setActiveChapter(item)}}>
+    <div className='flex gap-5 items-center justify-around'>
+      <h1>{index}</h1>
+    <h1 className='space-x-2'>{item.name}</h1>
+    </div>
+    {activeindex==index? <PauseCircleIcon size={20}/> : <PlayCircle size={20}/>}
+    </div>
+))}
+ 
+ </div>
+</div>
+
+</div>
+   </div>
   )
 }
 

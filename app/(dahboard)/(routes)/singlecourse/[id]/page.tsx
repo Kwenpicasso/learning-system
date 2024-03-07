@@ -69,7 +69,7 @@ const page = ({params}:{params:any}) => {
   }
   return (
     
-        <div className='w-full max px-3  bg-white h-full pt-[5%] grid grid-cols-6 gap-5 '>
+        <div className='w-full max px-4  bg-gray-100 h-full pt-[5%] grid grid-cols-6 gap-5 '>
         {/* left section */}  
      <div className='col-span-4  lg:col-span-6 '>
       {/* i am passing the video as a props from the singlelist state which would be accepted in the videosection component */}
@@ -77,12 +77,12 @@ const page = ({params}:{params:any}) => {
     {/* i am passing the course data as a props from the singlelist state which would be accepted in the videodesccription component */}
      {singlelist && <VideoDescription singlelist={singlelist}/>}
      
-     <div className='w-full  mt-5 p-3 flex flex-col gap-2 rounded-md shadow-lg'>
+     <div className='w-full  mt-5 p-3 flex flex-col gap-2 rounded-lg border border-gray-200'>
      <h1 className='font-semibold'>Course Outline</h1>
      <div className='w-full  p-3 rounded-md border border-gray-200 flex justify-start items-start flex-col text-sm'>
       <h3 className='font-semibold'>Module 1: introduction to project management</h3>
-      <div className='flex item-center'><Timer size={20}/> <p>3 hours 30mins</p></div>
-      <h3 >Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, id?</h3>
+      <div className='flex item-center gap-1 w-full '><Timer size={20} className='text-green-900'/> <p className='text-gray-500'>3 hours 30mins</p></div>
+      <h3 className='text-gray-500'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, id?</h3>
      </div>
     
      </div>
