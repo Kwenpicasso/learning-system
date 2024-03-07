@@ -49,6 +49,7 @@ const page = ({params}:{params:any}) => {
         await PubishEnrollUser(data1).then(result=> {
           
           console.log('result',result);
+          // toast popup when the user course is succesfully enrolled
           if(result){
             router.push(`/coursevideo/${singlelist?.id}`)
             toast("Course Enrolled!!", {
